@@ -1,0 +1,91 @@
+//SCSS Variables (At the Top)
+$primary-color: #111111;
+$secondary-color: #999999;
+$text-color: #787878;
+$font-stack: 'Quando', sans-serif;
+$heading-font: 'Josefin Sans', sans-serif;
+$spacing: 25px;
+
+//SCSS Mixins
+@mixin transition($time: 0.2s) {
+  transition: $time;
+}
+
+@mixin responsive-img {
+  max-width: 100%;
+  height: auto;
+}
+
+// 3️⃣ Converted CSS with Nesting & Variables
+body {
+  font-family: $font-stack;
+  font-size: 15px;
+  color: $text-color;
+}
+
+img {
+  @include responsive-img;
+}
+
+p {
+  margin-bottom: $spacing;
+  line-height: 1.6em;
+}
+
+a {
+  font-weight: 400;
+  text-decoration: none;
+  color: $primary-color;
+  @include transition;
+
+  &:hover {
+    color: $secondary-color;
+  }
+}
+
+// Headings with Nesting
+h1, h2, h3, h4, h5, h6 {
+  margin-top: $spacing;
+  margin-bottom: 20px;
+  font-family: $heading-font;
+}
+
+// Example of Navbar Nesting
+.navbar {
+  background: $primary-color;
+  padding: 10px;
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      display: inline-block;
+      margin-right: 15px;
+
+      a {
+        color: white;
+
+        &:hover {
+          color: $secondary-color;
+        }
+      }
+    }
+  }
+}
+
+// Buttons Using Mixins
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: $primary-color;
+  color: white;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  @include transition;
+
+  &:hover {
+    background: darken($primary-color, 10%);
+  }
+}
